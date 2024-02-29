@@ -1,0 +1,48 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.13.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet author="nicolas" id="1">
+        <sql>
+            CREATE TABLE IF NOT EXISTS hotel
+            (
+                hotel_id        INT AUTO_INCREMENT,
+                name            VARCHAR(255) NOT NULL,
+                location        VARCHAR(255),
+                available_rooms INT,
+                rating          FLOAT,
+                PRIMARY KEY (hotel_id)
+            );
+        </sql>
+    </changeSet>
+
+    <!-- Add dummy data -->
+    <changeSet author="nicolas" id="2">
+        <sql>
+            INSERT INTO hotel (name, location, available_rooms, rating)
+            VALUES
+                ('Grand Plaza Hotel', 'Chicago, IL', 50, 4.3),
+                ('Seaside Resort', 'San Diego, CA', 35, 4.5),
+                ('Mountain View Lodge', 'Denver, CO', 15, 4.6),
+                ('Harbor Lights Inn', 'Boston, MA', 25, 4.2),
+                ('Palm Oasis Hotel', 'Orlando, FL', 60, 4.7),
+                ('Riverside Retreat', 'Portland, OR', 20, 4.4),
+                ('Golden Gate Inn', 'San Francisco, CA', 45, 4.6),
+                ('Evergreen Lodge', 'Seattle, WA', 30, 4.3),
+                ('Sunny Side Motel', 'Los Angeles, CA', 40, 4.5),
+                ('Central Park Hotel', 'New York, NY', 55, 4.8),
+                ('Desert Oasis Resort', 'Phoenix, AZ', 70, 4.6),
+                ('Bayview Hotel', 'Miami, FL', 65, 4.4),
+                ('Lakefront Lodge', 'Minneapolis, MN', 20, 4.2),
+                ('Skyline Inn', 'Las Vegas, NV', 80, 4.7),
+                ('Countryside Retreat', 'Nashville, TN', 25, 4.5),
+                ('Forest Haven Hotel', 'Portland, ME', 30, 4.3),
+                ('Island Paradise Resort', 'Honolulu, HI', 40, 4.6),
+                ('Chateau Blanc', 'New Orleans, LA', 35, 4.4),
+                ('Starlight Inn', 'Houston, TX', 50, 4.5),
+                ('Blue Ridge Lodge', 'Asheville, NC', 15, 4.2);
+        </sql>
+    </changeSet>
+</databaseChangeLog>
